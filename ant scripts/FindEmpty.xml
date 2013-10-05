@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ant-playground" default="log-empty-files">
+    <property name="baseDirectory" value="C:/fix"/>
+    <property name="emptyFilesLog" value="${baseDirectory}/emptyFiles.txt"/>
+
+    <!-- ant contrib -->
+    <path id="ant-contrib.classpath">
+        <pathelement location="c:/ant/tools/ant-contrib/ant-contrib-1.0b3.jar"/>
+    </path>
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath refid="ant-contrib.classpath" />
+    </taskdef>
+
+     <macrodef name="count-and-log-empty-files"
+        description="this macro counts and log the empty files with given extension in the given directory.
+        It also logs the empty file fullpath.">
+         <attribute name="files.directory"/>
+         <attribute name="logfile.fullpath"/>
+         <attribute name="files.extension"/>
+         <attribute name="files.includes" default="*.@{files.extension}"/>
+        <sequential>
+            <delete file="@{logfile.fullpath}"></delete>
+            <for param="file">
+                 <path>
+                    <fileset dir="@{files.directory}" includes="@{files.includes}"/>
+                  </path>
+                   <sequential>
+                   <echo message="processing @{file} " />
+                    <if>
+                        <length file="@{file}" when="equal" length="0" />
+                    <then>
+                        <echo file="${emptyFilesLog}" message="@{file} ${line.separator}"  append="true"/>
+                    </then>
+                   </if>
+                  </sequential>
+            </for>
+            <resourcecount property="emptyfiles.count">
+                <tokens>
+                  <concat>
+                    <filterchain>
+                      <tokenfilter>
+                        <linetokenizer/>
+                      </tokenfilter>
+                    </filterchain>
+                    <fileset file="@{logfile.fullpath}"/>
+                  </concat>
+                </tokens>
+              </resourcecount>
+        </sequential>
+    </macrodef>
+
+   <target name="log-empty-files">
+        <echo message="log-empty-files" />
+        <count-and-log-empty-files files.directory="${baseDirectory}" files.extension="xml" logfile.fullpath="${emptyFilesLog}" files.includes="*/test/*"/>
+        <echo message="there are ${emptyfiles.count} empty files" />
+        <echo message="log-empty-files" />
+    </target>
+
+</project>
