@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Simple entity modeling a Person object.
+ */
 @javax.persistence.Entity
 @Table( name = "PERSON" )
 public class Person {
@@ -22,21 +25,59 @@ public class Person {
     String name;
 
     @ElementCollection
-    List<Address> addresses;
+    private List<Address> addresses;
 
+    /**
+     * Accessor method.
+     * 
+     * @return the database identifier for this person
+     */
     public Integer getId() {
         return id;
     }
 
-    public void setId( Integer postId ) {
-        this.id = postId;
+    /**
+     * Accessor method.
+     * 
+     * @param personId the database identifier for the person
+     */
+    public void setId( Integer personId ) {
+        this.id = personId;
     }
 
+    /**
+     * Accessor method.
+     * 
+     * @return the name of the person
+     */
     public String getName() {
         return name;
     }
 
-    public void setName( String title ) {
-        this.name = title;
+    /**
+     * Accessor method.
+     * 
+     * @param personName
+     */
+    public void setName( String personName ) {
+        this.name = personName;
+    }
+
+    /**
+     * Accessor method.
+     * 
+     * @param personAddresses the addresses to set
+     */
+    public void setAddresses( List<Address> personAddresses ) {
+        this.addresses = personAddresses;
+    }
+
+    /**
+     * Accessor method.
+     * 
+     * @return the addresses
+     */
+    public List<Address> getAddresses() {
+        return addresses;
     }
 }

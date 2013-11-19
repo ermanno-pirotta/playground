@@ -136,7 +136,7 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-test</artifactId>
-        <version>${org.springframework.version}</version>
+        <version>2.5</version>
         <scope>test</scope>
     </dependency>
 
