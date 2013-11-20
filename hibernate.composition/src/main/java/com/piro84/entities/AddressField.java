@@ -11,16 +11,19 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class AddressField {
+	@Column( name = "name" )
+	private String name;
+	
     @Column( name = "content" )
-    private String content;
+    private String description;
 
     /**
      * Accessor method.
      * 
      * @param text the content to set
      */
-    public void setContent( String text ) {
-        this.content = text;
+    public void setDescription( String text ) {
+        this.description = text;
     }
 
     /**
@@ -28,7 +31,15 @@ public class AddressField {
      * 
      * @return the content
      */
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
