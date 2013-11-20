@@ -3,11 +3,15 @@
  */
 package com.piro84.entities;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.persistence.Transient;
 
 /**
  * A simple object that models an address. </br> An address can have multiple
@@ -28,6 +32,14 @@ public class Address {
     @AttributeOverrides( { @AttributeOverride( name = "description", column = @Column( name = "country_description", nullable = true ) ),
     	@AttributeOverride( name = "name", column = @Column( name = "country_name", nullable = true ) )} )
     private AddressField country;
+    
+    /**
+     * not supported
+     * TODO: add link to jpa specification 
+     */
+    @Transient
+    @ElementCollection
+    private List<AddressField> customFields;
         
 
     /**
@@ -72,6 +84,14 @@ public class Address {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<AddressField> getCustomFields() {
+		return customFields;
+	}
+
+	public void setCustomFields(List<AddressField> customFields) {
+		this.customFields = customFields;
 	}
 
 }
