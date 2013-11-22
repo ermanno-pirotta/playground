@@ -1,6 +1,7 @@
 package com.piro84.personmodel.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -17,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.TransactionStatus;
 
+import com.piro84.entities.personmodel.Address;
 import com.piro84.entities.personmodel.Person;
 import com.piro84.repositories.PersonRepository;
 
@@ -24,7 +26,6 @@ import com.piro84.repositories.PersonRepository;
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration( locations = "classpath:META-INF/application-context.xml" )
 // @ContextConfiguration(locations="classpath:META-INF/test-context.xml")
-//enable transactional behaviour and dependency injection for the test
 public class PersonRepositoryTest {
 
     @Autowired
@@ -128,6 +129,46 @@ public class PersonRepositoryTest {
     		//delete the person that was created in the setUp method
     		repository.delete(person.getId());
     		assertFalse(repository.exists(person.getId()));
+    	}
+    }
+    
+    /**
+     * Tests the creation of two {@link Person} entities that have the same instance of {@link Address} component.
+     * Each entity will have each own copy of the component.
+     */
+    @Test 
+    public void createTwoEntitiesWithSameComposite(){
+    	Person instance1 = null;
+    	Person instance2 = null;
+    	{
+    		TransactionStatus transaction = transactionManager.getTransaction(null);
+    		
+    		//create two person objects with default values
+    		instance1 = factory.createPersonWithDefaultsWithNoNulls();
+    		instance2 = factory.createPersonWithDefaultsWithNoNulls();
+    		//create an address object with default values
+    		//for convenience, change one of the address contained in instance1
+    		Address address = instance1.getBunkerAddress();
+    		address.setName("Custom bunker address");
+    		
+    		//edit the person and add the address previously created
+    		instance1.setBunkerAddress(address);
+    		instance2.setBunkerAddress(address);
+    		
+    		//save the 2 person objects to the db
+    		repository.save(instance1);
+    		repository.save(instance2);
+    		transactionManager.commit(transaction);
+    	}
+    	
+    	{
+    		TransactionStatus transaction = transactionManager.getTransaction(null);
+    		
+    		Person personFromDb1= repository.findOne(instance1.getId());
+    		Person personFromDb2= repository.findOne(instance2.getId());
+    		
+    		transactionManager.commit(transaction);
+    		assertNotEquals(personFromDb1.getBunkerAddress(), personFromDb2.getBunkerAddress());
     	}
     }
 }
