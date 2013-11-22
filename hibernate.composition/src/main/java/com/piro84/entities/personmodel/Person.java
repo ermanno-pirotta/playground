@@ -1,4 +1,4 @@
-package com.piro84.entities;
+package com.piro84.entities.personmodel;
 
 import java.util.List;
 
@@ -8,18 +8,18 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  * Simple entity modeling a Person object for testing entity-embeddable relationships.
  * The model can not be used for any purpose other than testing, since it does not model in any way the reality.
  */
-@javax.persistence.Entity
+@Entity
 @Table( name = "T_Person" )
 public class Person {
 
@@ -28,15 +28,17 @@ public class Person {
     @Column( name = "person_id" )
     Integer id;
 
-    @Column( name = "name" )
+    @Column( name = "name", nullable=false )
     String name;
 
     /**
      * one-to-many with embeddable
+     * http://blog.eyallupu.com/2010/06/hibernate-exception-simultaneously.html
      * With the @CollectionTable annotation I can override the default naming for the table which will contain the embeddable
      * With the @JoinColumn within the @CollectionTable, I can override the name of the foreign key from the T_Person_privateAddresses.
      */
     @ElementCollection
+//    @OrderColumn
     @CollectionTable(name="T_Person_privateAddresses",joinColumns=@JoinColumn(name="OWNER_ID"))
     private List<Address> privateAddresses;
 

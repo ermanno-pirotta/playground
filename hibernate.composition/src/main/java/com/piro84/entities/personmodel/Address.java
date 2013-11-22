@@ -1,7 +1,7 @@
 /**
  * (C) 2013, Trapeze Switzerland GmbH. All rights reserved.
  */
-package com.piro84.entities;
+package com.piro84.entities.personmodel;
 
 import java.util.List;
 
@@ -34,8 +34,9 @@ public class Address {
     private AddressField country;
     
     /**
-     * not supported
-     * TODO: add link to jpa specification 
+     * not supported, please check the following post on stackoverflow:
+     * http://stackoverflow.com/questions/5261659/is-it-possible-for-a-jpa-embeddable-to-contain-embeddable-or-collection-of-embed
+     * 
      */
     @Transient
     @ElementCollection

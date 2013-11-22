@@ -1,7 +1,7 @@
 /**
  * (C) 2013, Trapeze Switzerland GmbH. All rights reserved.
  */
-package com.piro84.entities;
+package com.piro84.entities.personmodel;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
