@@ -2,6 +2,7 @@ package com.piro84.entities.personmodel;
 
 import java.util.List;
 
+import javax.persistence.AssociationOverride;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.CollectionTable;
@@ -38,7 +39,6 @@ public class Person {
      * With the @JoinColumn within the @CollectionTable, I can override the name of the foreign key from the T_Person_privateAddresses.
      */
     @ElementCollection
-//    @OrderColumn
     @CollectionTable(name="T_Person_privateAddresses",joinColumns=@JoinColumn(name="OWNER_ID"))
     private List<Address> privateAddresses;
 
@@ -56,13 +56,17 @@ public class Person {
      * - note that the Address#name attribute is also overridden, because it clashes with the Person#name column definition
      * - note that the embeddable colums end up in the T_Person table; it would be possible to group then in a separate table
      * with @SecondaryTable(name="T_Address") if there wasn't a bug opened for this: https://hibernate.atlassian.net/browse/HHH-8021
+     * 
+     * The @AssociationOverride is used for overriding the column name in case of entity->embeddable->entity 1-1 association
      */
     @Embedded
     @AttributeOverrides( { @AttributeOverride( name = "city.name", column = @Column(name = "bunkerAddress_city_name", nullable = true ) ),
     	@AttributeOverride( name = "city.description", column = @Column(name = "bunkerAddress_city_description", nullable = true )),
     	@AttributeOverride( name = "country.name", column = @Column(name = "bunkerAddress_country_name", nullable = true ) ),
     	@AttributeOverride( name = "country.description", column = @Column( name = "bunkerAddress_country_description", nullable = true )),
-    	@AttributeOverride( name = "name", column = @Column(name = "bunkerAddress_address_name", nullable = true ))} )
+    	@AttributeOverride( name = "name", column = @Column(name = "bunkerAddress_address_name", nullable = true )),
+    	@AttributeOverride( name = "houseMate.id", column = @Column(name = "bunkerAddress_housemate_id", nullable = true ))} )
+    @AssociationOverride(name = "houseMate", joinColumns = @JoinColumn(name = "bunkerAddress_housemate_id"))
     private Address bunkerAddress;
     
     /**
@@ -75,6 +79,7 @@ public class Person {
     	@AttributeOverride( name = "country.name", column = @Column( name = "secretAddress_country_name", nullable = true ) ),
     	@AttributeOverride( name = "country.description", column = @Column( name = "secretAddress_country_description", nullable = true )),
     	@AttributeOverride( name = "name", column = @Column( name = "secretAddress_address_name", nullable = true ))} )
+    @AssociationOverride(name = "houseMate", joinColumns = @JoinColumn(name = "secretAddress_housemate_id"))
     private Address secretAddress;
     
     

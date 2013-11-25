@@ -11,6 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 /**
@@ -33,6 +35,7 @@ public class Address {
     	@AttributeOverride( name = "name", column = @Column( name = "country_name", nullable = true ) )} )
     private AddressField country;
     
+    
     /**
      * not supported, please check the following post on stackoverflow:
      * http://stackoverflow.com/questions/5261659/is-it-possible-for-a-jpa-embeddable-to-contain-embeddable-or-collection-of-embed
@@ -43,6 +46,14 @@ public class Address {
     private List<AddressField> customFields;
         
 
+    /**
+     * Mapping a 1-1 relationship from an embeddable to an entity. The foreign key to the houseMate entity will be
+     * in the T_Person table.
+     */
+    @OneToOne
+    @JoinColumn(name="id")
+	private Housemate houseMate;
+    
     /**
      * Accessor method.
      * 
@@ -94,5 +105,14 @@ public class Address {
 	public void setCustomFields(List<AddressField> customFields) {
 		this.customFields = customFields;
 	}
+
+	public Housemate getHouseMate() {
+		return houseMate;
+	}
+
+	public void setHouseMate(Housemate houseMate) {
+		this.houseMate = houseMate;
+	}
+
 
 }
