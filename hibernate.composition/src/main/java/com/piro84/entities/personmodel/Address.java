@@ -7,11 +7,13 @@ import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -53,6 +55,16 @@ public class Address {
     @OneToOne
     @JoinColumn(name="id")
 	private Housemate houseMate;
+    
+    /**
+     * not supported, please check the following post on stackoverflow:
+     * http://stackoverflow.com/questions/5261659/is-it-possible-for-a-jpa-embeddable-to-contain-embeddable-or-collection-of-embed
+     * 
+     */
+    @Transient
+    @OneToMany
+    @CollectionTable(name="T_adress_housematelist")
+    private List<Housemate> houseMateList;
     
     /**
      * Accessor method.
@@ -112,6 +124,14 @@ public class Address {
 
 	public void setHouseMate(Housemate houseMate) {
 		this.houseMate = houseMate;
+	}
+
+	public List<Housemate> getHouseMateList() {
+		return houseMateList;
+	}
+
+	public void setHouseMateList(List<Housemate> houseMateList) {
+		this.houseMateList = houseMateList;
 	}
 
 

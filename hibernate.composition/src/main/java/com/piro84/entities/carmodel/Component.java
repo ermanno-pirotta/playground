@@ -2,8 +2,10 @@ package com.piro84.entities.carmodel;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
+import javax.persistence.OneToMany;
 
 @Embeddable
 public class Component {
@@ -16,6 +18,13 @@ public class Component {
 	@ElementCollection
 	private List<SubComponent> electricalComponents;
 	
+	@OneToMany
+	@CollectionTable(name="T_Component_carModels")
+	private List<Car> carModels;
+	
+	@OneToMany
+	@CollectionTable(name="T_Component_superCarModels")
+	private List<Car> superCarModels;
 
 	public String getName() {
 		return name;
@@ -39,6 +48,22 @@ public class Component {
 
 	public void setElectricalComponents(List<SubComponent> electricalComponents) {
 		this.electricalComponents = electricalComponents;
+	}
+
+	public List<Car> getCarModels() {
+		return carModels;
+	}
+
+	public void setCarModels(List<Car> carModels) {
+		this.carModels = carModels;
+	}
+
+	public List<Car> getSuperCarModels() {
+		return superCarModels;
+	}
+
+	public void setSuperCarModels(List<Car> superCarModels) {
+		this.superCarModels = superCarModels;
 	}
 
 }
