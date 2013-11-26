@@ -1,6 +1,9 @@
 package com.piro84.entities.hierarchymodel;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +23,12 @@ public class GhostFamily {
 	
 	@Embedded
 	private Soul familySoul;
+	
+	/**
+	 * Case for testing @entity->@embeddable[]->@Any relationship mapping.
+	 */
+	@ElementCollection
+	private List<Soul> otherSouls;
 	
 	/**
 	 * This is marked as @Transient otherwise the hibernate mapping will result in
@@ -52,5 +61,13 @@ public class GhostFamily {
 
 	public void setFatherSoul(Soul fatherSoul) {
 		this.fatherSoul = fatherSoul;
+	}
+
+	public List<Soul> getOtherSouls() {
+		return otherSouls;
+	}
+
+	public void setOtherSouls(List<Soul> otherSouls) {
+		this.otherSouls = otherSouls;
 	}
 }
