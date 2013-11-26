@@ -21,8 +21,9 @@ import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.MetaValue;
 
 /**
- * Sample class to demostrate the usage of the @Any annotation in case of not truly polimorphic types.
- * In this class is also demostrate the use of @Access( AccessType.PROPERTY ), which allows the developer to annotate getter methods instead of fields.
+ * Sample class to demonstrate the usage of the @Any annotation in case of not truly polimorphic types. 
+ * Please note that this is done to allow multiple inheritance via interfaces, which is conceptually wrong since polyphormism is intended for modeling behaviour and NOT data. 
+ * In this class is also demonstrated the use of @Access( AccessType.PROPERTY ), which allows the developer to annotate getter methods instead of fields.
  * @author pie
  *
  */
@@ -67,7 +68,7 @@ public class Family {
 		this.father = father;
 	}
 
-	@Transient	
+	@Transient
 	@ManyToAny( metaColumn = @Column( name = "children_type" ), fetch = FetchType.EAGER )
 	@AnyMetaDef( idType = "long", metaType = "string", metaValues = {
 			@MetaValue( value = "com.piro84.entities.hierarchymodel.Hero", targetEntity = com.piro84.entities.hierarchymodel.Hero.class ),
