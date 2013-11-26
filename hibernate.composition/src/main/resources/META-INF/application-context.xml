@@ -32,7 +32,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="persistenceUnitName" value="hibernate-composition" />
-		<property name="packagesToScan" value="com.piro84.entities.personmodel" />
+		<!--  <property name="packagesToScan" value="com.piro84.entities.personmodel" />-->
 	</bean>
 
 	<!-- Transaction Manager -->

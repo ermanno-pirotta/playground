@@ -82,7 +82,6 @@ public class Person {
     @AssociationOverride(name = "houseMate", joinColumns = @JoinColumn(name = "secretAddress_housemate_id"))
     private Address secretAddress;
     
-    
     /**
      * Accessor method.
      * 

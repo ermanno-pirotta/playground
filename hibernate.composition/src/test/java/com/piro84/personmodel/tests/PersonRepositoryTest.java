@@ -1,7 +1,7 @@
 package com.piro84.personmodel.tests;
 
 import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -168,7 +168,7 @@ public class PersonRepositoryTest {
     		Person personFromDb2= repository.findOne(instance2.getId());
     		
     		transactionManager.commit(transaction);
-//    		assertNotEquals(personFromDb1.getBunkerAddress(), personFromDb2.getBunkerAddress());
+    		assertNotSame(personFromDb1.getBunkerAddress(), personFromDb2.getBunkerAddress());
     	}
     }
 }
