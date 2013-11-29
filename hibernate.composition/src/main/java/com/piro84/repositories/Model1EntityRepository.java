@@ -5,11 +5,12 @@ package com.piro84.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.piro84.entities.personmodel.Person;
+import com.piro84.model1.Entity1;
+
 
 /**
- * Repository for persisting {@link Person} entities.
+ * Repository for persisting {@link Entity1} entities.
  */
-public interface PersonRepository extends JpaRepository<Person, Integer> {
+public interface Model1EntityRepository extends JpaRepository<Entity1, Integer> {
 
 }

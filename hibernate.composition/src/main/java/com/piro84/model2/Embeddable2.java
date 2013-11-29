@@ -1,9 +1,9 @@
-package com.piro84.entities.carmodel;
+package com.piro84.model2;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class SubComponent {
+public class Embeddable2 {
 
 	private String model;
 

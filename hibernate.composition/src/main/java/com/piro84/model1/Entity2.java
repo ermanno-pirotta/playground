@@ -1,4 +1,4 @@
-package com.piro84.entities.personmodel;
+package com.piro84.model1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,9 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="T_Housemate")
-public class Housemate {
+@Entity(name="T_Model1_Entity2")
+@Table(name="T_Model1_Entity2")
+public class Entity2 {
 	
 	@Id
     @GeneratedValue( strategy = GenerationType.AUTO )

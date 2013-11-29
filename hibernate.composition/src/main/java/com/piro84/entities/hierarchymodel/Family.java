@@ -74,7 +74,7 @@ public class Family {
 			@MetaValue( value = "com.piro84.entities.hierarchymodel.Hero", targetEntity = com.piro84.entities.hierarchymodel.Hero.class ),
 			@MetaValue( value = "com.piro84.entities.hierarchymodel.Person", targetEntity = com.piro84.entities.hierarchymodel.Hero.class )
 	} )
-	@JoinTable(name = "T_PersonInHierarchy_children",joinColumns = @JoinColumn( name = "family" ), inverseJoinColumns = @JoinColumn( name = "human_id" ) )
+	@JoinTable(name = "T_Entity1InHierarchy_children",joinColumns = @JoinColumn( name = "family" ), inverseJoinColumns = @JoinColumn( name = "human_id" ) )
 	public List<IHuman> getChildren() {
 		return children;
 	}

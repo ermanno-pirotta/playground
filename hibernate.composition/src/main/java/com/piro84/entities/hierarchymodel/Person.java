@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * The entity is named to avoid conflicts with the {@link com.piro84.entities.personmodel.Person} entity.
+ * The entity is named to avoid conflicts with the {@link com.piro84.model1.Entity1} entity.
  * @author pie
  *
  */
 @Entity(name="PersonInHierarchy")
-@Table(name="T_PersonInHierarchy")
+@Table(name="T_Entity1InHierarchy")
 public class Person implements IPerson {
 
 	@Id

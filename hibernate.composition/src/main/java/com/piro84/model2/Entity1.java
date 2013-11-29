@@ -1,4 +1,4 @@
-package com.piro84.entities.carmodel;
+package com.piro84.model2;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -12,23 +12,23 @@ import javax.persistence.Table;
 
 /**
  * Models a car. A car has some components which are made by sub-components. 
- * This is done to test the mapping cases which could not be tested in the person model (i.e. entity->embeddable->embeddable[]). 
+ * This is done to test the mapping cases which could not be tested in the model1 (i.e. entity->embeddable->embeddable[]). 
  * @author pie
  *
  */
-@Entity
-@Table(name="T_Car")
-public class Car {
+@Entity(name="T_Model2_Entity1")
+@Table(name="T_Model2_Entity1")
+public class Entity1 {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    @Column( name = "car_id" )
+    @Column( name = "id" )
 	private
     Integer id;
 	
 	@Embedded
-	@AttributeOverrides( { @AttributeOverride( name = "name", column = @Column(name = "steer_name", nullable = true )) })
-	private Component steer;
+	@AttributeOverrides( { @AttributeOverride( name = "name", column = @Column(name = "embeddable_name", nullable = true )) })
+	private Embeddable1 embeddable;
 	
 
 	public Integer getId() {
@@ -39,12 +39,12 @@ public class Car {
 		this.id = id;
 	}
 
-	public Component getSteer() {
-		return steer;
+	public Embeddable1 getEmbeddable() {
+		return embeddable;
 	}
 
-	public void setSteer(Component steer) {
-		this.steer = steer;
+	public void setEmbeddable(Embeddable1 emb) {
+		this.embeddable = emb;
 	}
 
 }

@@ -4,16 +4,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.piro84.carmodel.tests.CarRepositoryTest;
-import com.piro84.personmodel.tests.PersonRepositoryTest;
-
 /**
  * Test suite with all test cases for the project.
  * @author pie
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ CarRepositoryTest.class, PersonRepositoryTest.class })
+@SuiteClasses({ com.piro84.model1.tests.EntityRepositoryTest.class, com.piro84.model2.tests.EntityRepositoryTest.class })
 public class AllTests {
 
 }

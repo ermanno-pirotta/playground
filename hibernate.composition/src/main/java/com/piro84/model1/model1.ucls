@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.4" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
   realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
-  <class id="1" language="java" name="com.piro84.entities.personmodel.Person" project="hibernate-composition" 
-    file="/hibernate-composition/src/main/java/com/piro84/entities/personmodel/Person.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.piro84.model1.Entity1" project="hibernate-composition" 
+    file="/hibernate-composition/src/main/java/com/piro84/model1/Entity1.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="220" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -11,9 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.piro84.entities.personmodel.Address" project="hibernate-composition" 
-    file="/hibernate-composition/src/main/java/com/piro84/entities/personmodel/Address.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="com.piro84.model1.Embeddable1" project="hibernate-composition" 
+    file="/hibernate-composition/src/main/java/com/piro84/model1/Embeddable1.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="989" y="178"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -21,9 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.piro84.entities.personmodel.AddressField" project="hibernate-composition" 
-    file="/hibernate-composition/src/main/java/com/piro84/entities/personmodel/AddressField.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="com.piro84.model1.Embeddable2" project="hibernate-composition" 
+    file="/hibernate-composition/src/main/java/com/piro84/model1/Embeddable2.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="817" y="608"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -31,9 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.piro84.entities.personmodel.Housemate" project="hibernate-composition" 
-    file="/hibernate-composition/src/main/java/com/piro84/entities/personmodel/Housemate.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="com.piro84.model1.Entity2" project="hibernate-composition" 
+    file="/hibernate-composition/src/main/java/com/piro84/model1/Entity2.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1253" y="580"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -43,90 +39,90 @@
   </class>  
   <association id="5">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="6" name="country">        
-        <position height="18" width="45" x="924" y="428"/>      
+      <attribute id="6" name="entityList1">        
+        <position height="18" width="57" x="1095" y="505"/>      
       </attribute>      
-      <multiplicity id="7" minimum="0" maximum="1">        
-        <position height="16" width="23" x="891" y="428"/>      
-      </multiplicity>    
+      <multiplicity id="7" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="8">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="9" name="houseMateList">        
-        <position height="18" width="78" x="1064" y="469"/>      
+      <attribute id="9" name="entity1">        
+        <position height="18" width="40" x="1215" y="454"/>      
       </attribute>      
-      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
+      <multiplicity id="10" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="11">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="12" name="customFields">        
-        <position height="18" width="71" x="785" y="429"/>      
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="12" name="embeddable1">        
+        <position height="18" width="72" x="608" y="118"/>      
       </attribute>      
-      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+      <multiplicity id="13" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="14">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="15" name="homeAddresses">        
-        <position height="18" width="88" x="550" y="170"/>      
+      <attribute id="15" name="embeddable2">        
+        <position height="18" width="72" x="682" y="147"/>      
       </attribute>      
-      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+      <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="17">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="18" name="secretAddress">        
-        <position height="18" width="81" x="579" y="143"/>      
-      </attribute>      
-      <multiplicity id="19" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="20">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="21" name="city"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="18" name="embeddableList1">        
+        <position height="18" width="89" x="886" y="443"/>      
+      </attribute>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
+  <association id="20">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="24" name="privateAddresses">        
-        <position height="18" width="95" x="541" y="222"/>      
+      <attribute id="21" name="embeddableList2">        
+        <position height="18" width="89" x="617" y="190"/>      
       </attribute>      
-      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="embeddable1">        
+        <position height="18" width="72" x="886" y="492"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="26">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="27" name="houseMate">        
-        <position height="18" width="61" x="1074" y="434"/>      
+      <attribute id="27" name="embeddable2">        
+        <position height="18" width="72" x="769" y="480"/>      
       </attribute>      
       <multiplicity id="28" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="29">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="30" name="bunkerAddress">        
-        <position height="18" width="83" x="509" y="117"/>      
+      <attribute id="30" name="embeddableList1">        
+        <position height="18" width="89" x="674" y="216"/>      
       </attribute>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

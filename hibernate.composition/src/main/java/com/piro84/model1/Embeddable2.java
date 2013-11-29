@@ -1,7 +1,7 @@
 /**
  * (C) 2013, Trapeze Switzerland GmbH. All rights reserved.
  */
-package com.piro84.entities.personmodel;
+package com.piro84.model1;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,7 +10,7 @@ import javax.persistence.Embeddable;
  * A simple object that models an address field.
  */
 @Embeddable
-public class AddressField {
+public class Embeddable2 {
 	@Column( name = "name" )
 	private String name;
 	

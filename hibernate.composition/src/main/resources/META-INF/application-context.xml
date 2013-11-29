@@ -42,5 +42,5 @@
 
 	<!-- Jpa Repositories -->
 	<jpa:repositories base-package="com.piro84.repositories"></jpa:repositories>
-		
+	
 </beans>
