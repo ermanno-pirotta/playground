@@ -29,7 +29,7 @@ public class Embeddable1 {
 		return abstractEntity1;
 	}
 
-	public void setHuman(IAbstractEntity entity) {
+	public void setAbstractEntity(IAbstractEntity entity) {
 		this.abstractEntity1 = entity;
 	}
 }
