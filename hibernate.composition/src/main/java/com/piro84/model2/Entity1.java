@@ -23,11 +23,10 @@ public class Entity1 {
 	@Id
     @GeneratedValue( strategy = GenerationType.AUTO )
     @Column( name = "id" )
-	private
-    Integer id;
+	private Integer id;
 	
 	@Embedded
-	@AttributeOverrides( { @AttributeOverride( name = "name", column = @Column(name = "embeddable_name", nullable = true )) })
+	 @AttributeOverrides( { @AttributeOverride( name = "name", column = @Column(name = "embeddable_name", nullable = true )) })
 	private Embeddable1 embeddable;
 	
 

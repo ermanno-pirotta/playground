@@ -65,8 +65,9 @@ public class Entity1 {
     	@AttributeOverride( name = "embeddable1.description", column = @Column( name = "embeddable1_city_description", nullable = true )),
     	@AttributeOverride( name = "embeddable2.name", column = @Column( name = "embeddable1_country_name", nullable = true ) ),
     	@AttributeOverride( name = "embeddable2.description", column = @Column( name = "embeddable1_country_description", nullable = true )),
-    	@AttributeOverride( name = "name", column = @Column( name = "embeddable1_address_name", nullable = true ))} )
-//    @AssociationOverride(name = "entity1", joinColumns = @JoinColumn(name = "embeddable1_entity1_id"))
+    	@AttributeOverride( name = "name", column = @Column( name = "embeddable1_address_name", nullable = true )),
+    	@AttributeOverride( name = "entity1.id", column = @Column(name = "bunkerAddress_housemate_id", nullable = true ))} )
+    @AssociationOverride(name = "entity1", joinColumns = @JoinColumn(name = "embeddable1_entity1_id"))
     private Embeddable1 embeddable1;
     
     /**
@@ -79,7 +80,7 @@ public class Entity1 {
     	@AttributeOverride( name = "embeddable2.name", column = @Column(name = "embeddable2_country_name", nullable = true ) ),
     	@AttributeOverride( name = "embeddable2.description", column = @Column( name = "embeddable2_country_description", nullable = true )),
     	@AttributeOverride( name = "name", column = @Column(name = "embeddable2_address_name", nullable = true ))} )
-//    @AssociationOverride(name = "entity1", joinColumns = @JoinColumn(name = "embeddable2_entity1_id"))
+    @AssociationOverride(name = "entity1", joinColumns = @JoinColumn(name = "embeddable2_entity1_id"))
     private Embeddable1 embeddable2;
     
     /**

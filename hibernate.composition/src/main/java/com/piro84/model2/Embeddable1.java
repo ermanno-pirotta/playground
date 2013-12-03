@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Embeddable
 public class Embeddable1 {
@@ -22,12 +23,18 @@ public class Embeddable1 {
 	private List<Embeddable2> embeddableList2;
 	
 	@OneToMany
-	@CollectionTable(name="T_Model2_Embeddable1_Entity1_List1")
-	private List<Entity1> entityList1;
+	@CollectionTable(name="T_Model2_Embeddable1_Entity2_List1")
+	private List<Entity2> entityList1;
 	
 	@OneToMany
-	@CollectionTable(name="T_Model2_Embeddable1_Entity1_List2")
-	private List<Entity1> entityList2;
+	@CollectionTable(name="T_Model2_Embeddable1_Entity2_List2")
+	private List<Entity2> entityList2;
+	
+	@OneToOne
+	private Entity2 entity1;
+	
+	@OneToOne
+	private Entity2 entity2;
 
 	public String getName() {
 		return name;
@@ -53,20 +60,37 @@ public class Embeddable1 {
 		this.embeddableList2 = electricalComponents;
 	}
 
-	public List<Entity1> getEntityList1() {
+	public List<Entity2> getEntityList1() {
 		return entityList1;
 	}
 
-	public void setEntityList1(List<Entity1> list) {
+	public void setEntityList1(List<Entity2> list) {
 		this.entityList1 = list;
 	}
 
-	public List<Entity1> getEntityList2() {
+	public List<Entity2> getEntityList2() {
 		return entityList2;
 	}
 
-	public void setEntityList2(List<Entity1> list) {
+	public void setEntityList2(List<Entity2> list) {
 		this.entityList2 = list;
 	}
+
+	public Entity2 getEntity1() {
+		return entity1;
+	}
+
+	public void setEntity1(Entity2 entity1) {
+		this.entity1 = entity1;
+	}
+
+	public Entity2 getEntity2() {
+		return entity2;
+	}
+
+	public void setEntity2(Entity2 entity2) {
+		this.entity2 = entity2;
+	}
+
 
 }

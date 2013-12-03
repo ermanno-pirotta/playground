@@ -27,6 +27,10 @@ public class Embeddable1 {
 	@Column( name = "name" )
 	private String name;
 
+	/**
+	 * The following @AttributeOverrides could be moved to the {@link Entity1} class, on the array of Embeddable2 attributes. 
+	 * In this way though, we can keep the annotation for the arrays of embeddable much cleaner in the {@link Entity1}. 
+	 */
     @Embedded
     @AttributeOverrides( { @AttributeOverride( name = "description", column = @Column( name = "city_description", nullable = true ) ),
     	@AttributeOverride( name = "name", column = @Column( name = "city_name", nullable = true ) )} )

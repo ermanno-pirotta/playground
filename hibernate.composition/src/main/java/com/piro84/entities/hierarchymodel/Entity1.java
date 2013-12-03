@@ -12,13 +12,13 @@ import javax.persistence.Table;
  * @author pie
  *
  */
-@Entity(name="PersonInHierarchy")
-@Table(name="T_Entity1InHierarchy")
-public class Person implements IPerson {
+@Entity(name="T_HierarchyModel_Entity1")
+@Table(name="T_HierarchyModel_Entity1")
+public class Entity1 implements IEntity1 {
 
 	@Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    @Column( name = "person_id" )
+    @Column( name = "id" )
 	private Integer id;
 	
 	@Column(name="name")

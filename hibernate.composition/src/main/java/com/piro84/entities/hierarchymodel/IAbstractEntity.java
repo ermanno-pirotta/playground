@@ -5,6 +5,6 @@ package com.piro84.entities.hierarchymodel;
  * @author pie
  *
  */
-public interface IHuman {
+public interface IAbstractEntity {
 	/*intentionally left empty*/
 }

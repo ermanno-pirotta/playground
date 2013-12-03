@@ -8,7 +8,7 @@ import javax.persistence.Embeddable;
  *
  */
 @Embeddable 
-class SuperPower{
+class Embeddable2{
 	
 	private String name;
 	

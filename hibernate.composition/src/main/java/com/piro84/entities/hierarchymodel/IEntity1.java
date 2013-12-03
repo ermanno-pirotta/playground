@@ -1,6 +1,6 @@
 package com.piro84.entities.hierarchymodel;
 
-public interface IPerson {
+public interface IEntity1 extends IAbstractEntity {
 
 	String getName();
 
