@@ -33,12 +33,14 @@ public class Embeddable1 {
 	 */
     @Embedded
     @AttributeOverrides( { @AttributeOverride( name = "description", column = @Column( name = "city_description", nullable = true ) ),
-    	@AttributeOverride( name = "name", column = @Column( name = "city_name", nullable = true ) )} )
+    	@AttributeOverride( name = "name", column = @Column( name = "city_name", nullable = true ) ),
+    	@AttributeOverride( name = "embeddable.name", column = @Column( name = "embeddable1_embeddable_name", nullable = true ) )} )
     private Embeddable2 embeddable1;
 
     @Embedded
     @AttributeOverrides( { @AttributeOverride( name = "description", column = @Column( name = "country_description", nullable = true ) ),
-    	@AttributeOverride( name = "name", column = @Column( name = "country_name", nullable = true ) )} )
+    	@AttributeOverride( name = "name", column = @Column( name = "country_name", nullable = true ) ),
+    	@AttributeOverride( name = "embeddable.name", column = @Column( name = "embeddable2_embeddable_name", nullable = true ) )} )
     private Embeddable2 embeddable2;
     
     

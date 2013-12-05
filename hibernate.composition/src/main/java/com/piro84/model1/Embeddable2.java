@@ -3,8 +3,11 @@
  */
 package com.piro84.model1;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 
 /**
  * A simple object that models an address field.
@@ -16,6 +19,10 @@ public class Embeddable2 {
 	
     @Column( name = "content" )
     private String description;
+    
+    @Embedded
+    @AttributeOverrides( { @AttributeOverride( name = "name", column = @Column( name = "embeddable_name", nullable = true ) )} )
+    private Embeddable3 embeddable;
 
     /**
      * Accessor method.
@@ -41,5 +48,13 @@ public class Embeddable2 {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Embeddable3 getEmbeddable() {
+		return embeddable;
+	}
+
+	public void setEmbeddable(Embeddable3 embeddable) {
+		this.embeddable = embeddable;
 	}
 }
