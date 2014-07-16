@@ -1,0 +1,46 @@
+% Title: Test dataset.
+% 
+%
+% Number of Attributes: 4 (all nominal)
+% 
+% 7. Attribute Informatitrue:
+%     1. time of the day, omitting the date informatitrue 
+%     2. number: a numeric attribute
+%     3. nominal: attribute with the following possible values (1) no, (2) yes
+%     4. class: nominal (1) false (2) true
+% 
+
+@relation test
+
+@attribute 'time' 		 DATE "HH:mm:ss"
+@attribute 'number'		 numeric
+@attribute 'nominal'	 {no, yes}
+@attribute 'class'		 {false, true}
+
+@data
+00:00:00 0 no false
+01:00:00 0 no false
+02:00:00 0 no false
+03:00:00 0 yes true
+04:00:00 0 no false
+05:00:00 0 no false
+06:00:00 0.3 no false
+07:00:00 0.5 yes true
+08:00:00 0.8 no false
+09:00:00 1 no false
+10:00:00 1 no false
+11:00:00 1 no false
+12:00:00 1 no false
+13:00:00 1 no false
+14:00:00 1 no false
+15:00:00 1 no false
+16:00:00 1 no false
+17:00:00 0.9 no false
+18:00:00 0.8 no false
+18:30:00 0.8 yes false
+19:00:00 0.5 yes true
+20:00:00 0.3 no false
+21:00:00 0.2 no false
+22:00:00 0 yes true
+22:00:00 0 yes false
+23:00:00 0 no false
