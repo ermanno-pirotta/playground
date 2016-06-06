@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript inheritance test</title>    
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="js/jquery.subclass.js"></script>
+    <script src="js/vehicle.js"></script>
+    <script src="js/truck.js"></script> 
+    <script src="js/script.js"></script>
+    
+</head>
+<body>
+    <p>
+       Javascript inheritance tests, using jquery.extend. Please have a look at your console to see the output.
+    </p>
+    <p>
+        In this example, a vehicle class defines a #honk and #getName methods. The truck class inherits from the vehicle one and overrides the #getName method and defines the #superHonk method. 
+    </p>
+    <p>
+        Please note that this is not proper inheritance, but serves as a base to design hierarchies of singleton objects. This objects are designed with the module pattern approach, and can re-use and override "parent's" methods. 
+    </p>
+   
+</body>
+</html>
