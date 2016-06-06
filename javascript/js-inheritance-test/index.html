@@ -7,6 +7,7 @@
     <script src="js/jquery.subclass.js"></script>
     <script src="js/vehicle.js"></script>
     <script src="js/truck.js"></script> 
+    <script src="js/bike.js"></script> 
     <script src="js/script.js"></script>
     
 </head>
@@ -15,7 +16,7 @@
        Javascript inheritance tests, using jquery.extend. Please have a look at your console to see the output.
     </p>
     <p>
-        In this example, a vehicle class defines a #honk and #getName methods. The truck class inherits from the vehicle one and overrides the #getName method and defines the #superHonk method. 
+        In this example, a vehicle class defines a #honk and #getName methods. The truck class inherits from the vehicle one and overrides the #getName method and defines the #superHonk method. A bike class also inherits from vehicle, and overrides only the name.
     </p>
     <p>
         Please note that this is not proper inheritance, but serves as a base to design hierarchies of singleton objects. This objects are designed with the module pattern approach, and can re-use and override "parent's" methods. 
