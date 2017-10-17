@@ -11,7 +11,7 @@ The setup is pretty straightforward:
 - tomcat listen to the 8009 port
 - apache listen on the port 80
 
-![Alt text](network_infrastructure.png?raw=true “main setup“)
+![Alt text](https://raw.githubusercontent.com/ermanno-pirotta/playground/master/apache-wordpress-tomcat/network_infrastructure.png)
 
 When a request comes, based on the url of the request apache proxies it to tomcat or serves wordpress content.
 
