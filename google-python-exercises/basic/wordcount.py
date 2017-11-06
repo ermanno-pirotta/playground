@@ -45,13 +45,40 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
+def count_word(filename):
+    file = open(filename, 'rU')
+    word_count_dictionary = {}
+    for line in file:
+        words_in_line = line.split()
+        for word in words_in_line:
+            word_lowercase = word.lower()
+            if not word_count_dictionary.has_key(word_lowercase):
+                word_count_dictionary[word_lowercase] = 1
+            else:
+                word_count_dictionary[word_lowercase] = word_count_dictionary[word_lowercase] + 1
+    file.close()
+    return word_count_dictionary
+
+def print_words(filename):
+    word_count_dictionary = count_word(filename)
+    for key in sorted(word_count_dictionary.keys()):
+        print(str(key) + " " +  str(word_count_dictionary[key]))
+
+def print_top(filename):
+    word_count_dictionary = count_word(filename)
+    word_count_dictionary_ordered_by_count_desc = sorted(word_count_dictionary.items(), key=lambda value: value[1], reverse = True)
+    top_20_words = word_count_dictionary_ordered_by_count_desc[:20]
+
+    for word in top_20_words:
+        print(str(word[0]) + " " + str(word[1]))
+
 ###
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./wordcount.py {--count | --topcount} file'
+    print('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -61,7 +88,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print 'unknown option: ' + option
+    print ('unknown option: %s', option)
     sys.exit(1)
 
 if __name__ == '__main__':
