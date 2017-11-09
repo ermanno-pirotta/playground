@@ -93,3 +93,5 @@ In a sense, the update gate is the equivalent of both the input and forget gate 
 - Stochastic gradient descent (SGD): optimisation technique that works on the whole training set. Commonly used to optimise neural networks.
 - sigmoid function: function that maps values to a range of (0,1)
 - tanh function: function that map values between -1 and 1
+- distributional hypothesis state: Words that appear in a similar context tend to be similar.
+- vanishing gradient problem: The gradients with respect to the parameters in the layers far away from the output become extremely small
