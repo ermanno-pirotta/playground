@@ -33,6 +33,8 @@ Suggested milestones for incremental development:
  -Build the [year, 'name rank', ... ] list and print it
  -Fix main() to use the extract_names list
 """
+def name_with_rank(name, rank):
+    return name + ' ' + rank
 
 def extract_names(filename):
   """
@@ -40,8 +42,31 @@ def extract_names(filename):
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
-  # +++your code here+++
-  return
+
+  print('processing ', filename)
+  f = open(filename, 'r')
+  file_content = f.read()
+
+  #extract year
+  match = match=re.search(r'(name="year".+value=")(\d+)"', file_content)
+  if match:
+      year = match.group(2)
+  else:
+      sys.stderr.write('Year not found for this file, exiting\n')
+      sys.exit(1)
+
+  #extract name and rank
+  name_rank_match = re.findall(r'<td>(\d+).+<td>(\w+).+<td>(\w+).+\n', file_content)
+  names_with_ranks = []
+  if name_rank_match:
+      for name in name_rank_match:
+          names_with_ranks.append(name_with_rank(name[1],name[0]))
+          names_with_ranks.append(name_with_rank(name[2],name[0]))
+  sorted_array = sorted(names_with_ranks)
+  sorted_array.insert(0, year)
+
+  f.close()
+  return sorted_array
 
 
 def main():
@@ -63,6 +88,14 @@ def main():
   # +++your code here+++
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
+  for filename in args :
+      names_with_ranks = extract_names(filename)
+      if summary:
+          summaryfile = open(filename + '.summary', 'w')
+          summaryfile.write(str(names_with_ranks) + '\n')
+          summaryfile.close()
+      else:
+          print(names_with_ranks)
 
 if __name__ == '__main__':
   main()
