@@ -28,7 +28,7 @@ def main():
   # which is the script itself.
   args = sys.argv[1:]
   if not args:
-    print "usage: [--todir dir][--tozip zipfile] dir [dir ...]";
+    print ("usage: [--todir dir][--tozip zipfile] dir [dir ...]");
     sys.exit(1)
 
   # todir and tozip are either set from command line
@@ -45,11 +45,11 @@ def main():
     del args[0:2]
 
   if len(args) == 0:
-    print "error: must specify one or more dirs"
+    print ("error: must specify one or more dirs")
     sys.exit(1)
 
   # +++your code here+++
   # Call your functions
-  
+
 if __name__ == "__main__":
   main()
