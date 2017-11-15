@@ -95,3 +95,8 @@ In a sense, the update gate is the equivalent of both the input and forget gate 
 - tanh function: function that map values between -1 and 1
 - distributional hypothesis state: Words that appear in a similar context tend to be similar.
 - vanishing gradient problem: The gradients with respect to the parameters in the layers far away from the output become extremely small
+
+## Q&A
+- What is the proxy task solved by the Word2Vec model in its skip-gram variant? Predicting the context words based on the center word
+- Which component of a long short-term memory (LSTM) cell facilitates the uninterrupted flow of the gradient? Memory cell
+-
