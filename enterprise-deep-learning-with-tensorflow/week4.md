@@ -136,3 +136,10 @@ INPUT - [CNN (encoder)] - [UPSAMPLE [decoder]] - OUTPUT
 - softmax classification layer: layer that output a probability for each neuron to match a specific feature.
 - field of view: dimension of the matrix used for convolution
 - general convolution output: A weighted sum of the inputs
+
+## Q&A (from weekly exam)
+
+- Why is it problematic to augment data with a spatial invariant set in a feed forward network? Because the training time and the complexity of the model are increased due to the increasing data size
+- Which pattern is typically used to design convolutional neural networks? The number of channels increases while the resolution decreases
+- How can you obtain the predicted class label from the output neurons of a convolutional neural network (the logits)? Select the index of the neuron with the largest value
+- Which of the following models belong to the one-stage detector family? YOLO (9000), RetinaNet, and SSD
