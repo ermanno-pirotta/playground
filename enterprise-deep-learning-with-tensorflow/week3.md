@@ -89,9 +89,10 @@ In a sense, the update gate is the equivalent of both the input and forget gate 
 - Loss: error made by the model on a single data point
 - Cost function: avg of the loss function over the whole training data (overall error made by the model on the training data)
 - Softmax: classifier often used in the last layer of the network. It converts final score into probabilities for each category.
-- Mini-batch: optimisation techiques on a small training set at a time, and progressively
-- Stochastic gradient descent (SGD): optimisation technique that works on the whole training set. Commonly used to optimise neural networks.
-- sigmoid function: function that maps values to a range of (0,1)
+- Gradient descent algorithm: algorithm used to make a neural network learn. It is a way to find the global minimum of the cost function (when the cost function is close to zero, the output of the neural network resemble the inputs, and therefore the net has learned to classify the data). It is called "gradient descent" because it calculates the gradient many times trying to "descend" to the global minimum of the cost function. The "learning rate", defines how "big" are the "steps" taken by the algorithm to reach the global minimum. The lower the more accurate is the gradient (but on the other hand the speed of the algorithm is lower).
+- Mini-batch: random training inputs used when trying to minimize the cost function with the Stochastic gradient descent algorithm
+- Stochastic gradient descent (SGD): optimisation technique that works on a random subset of the training set. Commonly used to optimise neural networks. In practice, it is a version of the gradient descent that uses "mini-batches" of data when trying to minimize the cost function. The gradient on the mini-batch data is calculated for the number necessary to complete an "epoch" of training.
+- sigmoid function: function that maps values to a range of (0,1). Used as an activation "threshold" for neurons
 - tanh function: function that map values between -1 and 1
 - distributional hypothesis state: Words that appear in a similar context tend to be similar.
 - vanishing gradient problem: The gradients with respect to the parameters in the layers far away from the output become extremely small

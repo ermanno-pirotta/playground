@@ -63,7 +63,7 @@ Types of networks:
 
 - Generalisation: ability of the neural network to perform well on unseen data.
 - Underfit: the network is not powerful enough to represent the data. We say that the model has high bias.
-- Over fit: the model is not general and represents all the data, including exceptional cases. The model has high variance.
+- Overfit: the model is not general and represents all the data, including exceptional cases. The model has high variance. In general, one of the best ways of reducing overfitting is to increase the size of the training data.
 - Regularisation: techniques to balance the model outcome so that it generalises well.
 - [Facets](https://pair-code.github.io/facets/): open source tool for data visualisation.
 - TensorFlow serving: library for serving system for machine learning models (to port to production your models).

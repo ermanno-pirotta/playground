@@ -133,7 +133,8 @@ INPUT - [CNN (encoder)] - [UPSAMPLE [decoder]] - OUTPUT
 - estimator API: allows to easily wrap Tensorflow calls
 - transpose convolution = deconvolution = aka strided convolution
 - ReLU: Non-linearity activation function, introduced in the middle of each convolution from layer to layer. In Tensorflow, the activation function is "embedded" in the convolutional layer. ReLus do not saturate.
-- softmax classification layer: layer that output a probability for each neuron to match a specific feature.
+- softmax classification layer: layer that output a probability for each neuron to match a specific feature. The output from the softmax layer can be thought of as a probability distribution, meaning that the sum of the output of all the neurons in the layer is always 1.
+should you use a sigmoid output layer and cross-entropy, or a softmax output layer and log-likelihood? In fact, in many situations both approaches work well. softmax plus log-likelihood is worth using whenever you want to interpret the output activations as probabilities. That's not always a concern, but can be useful with classification problems (like MNIST) involving disjoint classes.
 - field of view: dimension of the matrix used for convolution
 - general convolution output: A weighted sum of the inputs
 
