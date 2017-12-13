@@ -1,7 +1,5 @@
 # Enterprise deep learning with Tensorflow - week 1
 
-TODO: VIDEO 2 AND 6
-
 ## What is deep learning?
 Deep learning is an umbrella term for machine learning based on neural networks. It comprises a cascade of multiple layers of nonlinear processing units, where each output of layer N is the input of layer N+1.
 
